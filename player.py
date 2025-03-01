@@ -1,15 +1,18 @@
 class Player:
-    def __init__(self, name, role="angel"):
+    def __init__(self, name, is_demon=False):
         self.name = name
-        self.role = role #angel or demon
-        self.crosses = 1 #start with one crosses
+        self.role = "悪魔" if is_demon else "天使" #angel or demon
+        self.crosses = 0 if is_demon else 1 #start with one crosses
 
+    def __repr__(self):
+        return self.name
+    
     def become_demon(self):
-        self.role = 'demon'
+        self.role = '悪魔'
         print(f"{self.name} は悪魔になった!")
 
     def become_angel(self):
-        self.role = 'angel'
+        self.role = '天使'
         print(f"{self.name} は天使になった!")
     
     def add_cross(self):
